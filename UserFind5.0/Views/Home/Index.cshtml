@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    .vertical-spacer25 {
+        height: 25px;
+        width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4 align-text-center text-left">
+        <h6>Why "Cyber Stalking" is bad</h6>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/index.jpg" onclick="redirect(1)" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/index2.jpg" onclick="redirect(2) " class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/index3.jpg" onclick="redirect(3)" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-4 ">
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <div class="col-md-12">
+                <form method="post" action="/Home/Search" onsubmit="return validate_form();">
+                    <div class="form-group">
+                        <label for="firstName" style="float:left">First Name</label>
+                        <input class="form-control" value="" type="text" id="firstName" name="firstName" placeholder="First Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="secondName" style="float:left">Second Name</label>
+                        <input class="form-control" value="" type="text" id="secondName" name="secondName" placeholder="Second Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="topic" style="float:left">Topic</label>
+                        <input class="form-control" type="text" id="topic" name="topic" placeholder="Topic" aria-describedby="topicHelp" />
+                        <small id="topicHelp" style="float:left" class="form-text text-muted">Some additional information(optional field)</small>
+                    </div>
+                    <div class="vertical-spacer25"></div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 align-text-center text-right">
+        <h6>Good weather for good people (not a cyber stalker)</h6>
+        <div id="SinoptikInformer" style="width:350px;" class="SinoptikInformer type5 float-right">
+            <div class="siHeader">
+                <div class="siLh">
+                    <div class="siMh">
+                        <a onmousedown="siClickCount();" class="siLogo" href="https://sinoptik.ua/" target="_blank" rel="nofollow" title="Погода">
+                        </a>Погода <span id="siHeader"></span>
+                    </div>
+                </div>
+            </div><div class="siBody">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="siCityV" style="width:100%;">
+                                <a onmousedown="siClickCount();" href="https://sinoptik.ua/погода-киев" title="Weather in Kyiv" target="_blank">
+                                    <div class="siCityName">
+                                        <span>Kyiv</span>
+                                </a>
+            </div>
+            </tr>
+            <tr>
+                <td style="width:100%;">
+                    <div class="siCityV2">
+                        <a onmousedown="siClickCount();" href="https://sinoptik.ua/погода-киев" title="Weather in Kyiv" target="_blank">
+                            <div id="siCont0" class="siBodyContent">
+                                <div class="siLeft">
+                                    <div class="siTerm">
+                                    </div><div class="siT" id="siT0">
+                                    </div><div id="weatherIco0">
+                                    </div>
+                                </div><div class="siInf">
+                                    <p>Humidity: <span id="vl0"></span></p><p>
+                                        Atm. Pressure: <span id="dav0"></span>
+                                    </p><p>Wind: <span id="wind0"></span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+            <div class="siLinks">
+                Weather for next 10 days from <a href="https://sinoptik.ua/погода-киев/10-дней" title="Weather for 10 days" target="_blank" onmousedown="siClickCount();">sinoptik.ua</a>
+            </div>
+        </div>
+        <div class="siFooter"><div class="siLf"><div class="siMf"></div></div></div>
+    </div>
+    <script type="text/javascript" charset="UTF-8" src="//sinoptik.ua/informers_js.php?title=4&amp;wind=2&amp;cities=303010783&amp;lang=ru"></script>
+</div>
+
+
+<div class="modal fade" id="alertModalWindow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <strong id="alertModalText"></strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function redirect(number)
+    {
+        if (number == 1)
+            window.open('https://www.quora.com/Is-a-little-cyber-stalking-bad', '_blank');
+        else if (number == 2)
+            window.open('https://us.norton.com/internetsecurity-privacy-straight-talk-about-cyberstalking.html', '_blank');
+        else if (number == 3)
+            window.open('https://www.dvrcv.org.au/help-advice/cyber-stalking-and-harassment', '_blank');
+    }
+    function validate_form()
+    {
+        let valid = true;
+        if (document.getElementById('firstName').value == "" && document.getElementById('secondName').value == "") {
+            ShowModalAlert('first and last name must be set')
+            valid = false;
+        }
+        else if (document.getElementById('firstName').value == "") {
+            ShowModalAlert('first name must be set')
+            valid = false;
+        }
+        else if (document.getElementById('secondName').value == "")
+        {
+            ShowModalAlert('first name must be set')
+            valid = false;
+        }
+        return valid;
+    }
+    function ShowModalAlert(text) {
+        document.getElementById('alertModalText').innerHTML = text;
+        $('#alertModalWindow').modal('show')
+    }
+</script>

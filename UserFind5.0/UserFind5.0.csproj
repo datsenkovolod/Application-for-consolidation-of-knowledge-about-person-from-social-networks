@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>UserFind5._0</RootNamespace>
+    <UserSecretsId>796b2e0f-461f-42c5-921f-ffae025992cc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\index.jpg" />
+    <Content Remove="wwwroot\images\index2.jpg" />
+    <Content Remove="wwwroot\images\index3.jpg" />
+    <Content Remove="wwwroot\images\poleznoe.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
+    <PackageReference Include="Google.Apis.Tasks.v1" Version="1.50.0.2231" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\index.jpg" />
+    <None Include="wwwroot\images\index2.jpg" />
+    <None Include="wwwroot\images\index3.jpg" />
+    <None Include="wwwroot\images\poleznoe.png" />
+  </ItemGroup>
+
+</Project>

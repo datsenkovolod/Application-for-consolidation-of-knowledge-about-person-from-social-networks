@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Result";
+}
+@model List<Google.Apis.Customsearch.v1.Data.Result>
+<h1>Result</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+@foreach (var result in Model)
+{
+<div class="col-md-12">
+    <a href="@result.Link">"@result.Link</a>
+</div>
+}
+
